@@ -1,15 +1,30 @@
 name: AutoCoder Workflow
 
+# new issue opened or closed issue reopened
 on:
-  push
+  issues:
+    types: [opened, reopened]
+
+# Set and use environment variables to read the content of the issue that triggered the workflow taking advantage of the github.event variable to access issue details such as number, title, body, assignees, and labels as shown in the example above;
 
 jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        # actions/checkout
         uses: actions/checkout@v2
 
-      - name: Greeting Message
-        run: echo "Hello, world!"
+      - name: Set Env Issue Information
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
+          ISSUE_LABELS: ${{ github.event.issue.labels }}
+      - name: Print Issue Information
+        run: |
+          echo "Issue Number: $ISSUE_NUMBER"
+          echo "Issue Title: $ISSUE_TITLE"
+          echo "Issue Body: $ISSUE_BODY"
+          echo "Issue Assignees: $ISSUE_ASSIGNEES"
+          echo "Issue Labels: $ISSUE_LABELS"
