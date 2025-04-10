@@ -1,11 +1,8 @@
 name: AutoCoder Workflow
 
-# new issue opened or closed issue reopened
 on:
   issues:
     types: [opened, reopened]
-
-# Set and use environment variables to read the content of the issue that triggered the workflow taking advantage of the github.event variable to access issue details such as number, title, body, assignees, and labels as shown in the example above;
 
 jobs:
   say_hello:
