@@ -21,8 +21,6 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
           ISSUE_LABELS: ${{ github.event.issue.labels }}
-
-      - name: Print Issue Information
         run: |
           echo "Issue Number: $ISSUE_NUMBER"
           echo "Issue Title: $ISSUE_TITLE"
