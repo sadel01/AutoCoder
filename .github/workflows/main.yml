@@ -19,8 +19,8 @@ jobs:
           ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
           ISSUE_LABELS: ${{ github.event.issue.labels }}
         run: |
-          echo "Issue Number: $ISSUE_NUMBER"
-          echo "Issue Title: $ISSUE_TITLE"
-          echo "Issue Body: $ISSUE_BODY"
-          echo "Issue Assignees: $ISSUE_ASSIGNEES"
-          echo "Issue Labels: $ISSUE_LABELS"
+          echo "Issue Number: ${ISSUE_NUMBER}"
+          echo "Issue Title: ${ISSUE_TITLE}"
+          echo "Issue Body: ${ISSUE_BODY}"
+          echo "Issue Assignees: ${ISSUE_ASSIGNEES}"
+          echo "Issue Labels: ${ISSUE_LABELS}"
